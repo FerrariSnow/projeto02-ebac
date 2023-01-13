@@ -1,22 +1,23 @@
 const form = document.querySelector("#form-cadastro");
-let linhas = "";
 const inputNomeContato = document.querySelector("#nome");
 const inputTelefoneContato = document.querySelector("#telefone");
+let linhas = "";
 
 function adicionaLinha(inputNomeContato, inputTelefoneContato) {
   let linha = "<tr>";
   linha += `<td>${inputNomeContato.value}</td>`;
   linha += `<td>${inputTelefoneContato.value}</td>`;
   linha += "<tr>";
+
   linhas += linha;
+}
+
+function atualizaTabela(linhas) {
+  const corpoTabela = document.querySelector("tbody");
+  corpoTabela.innerHTML = linhas;
 
   inputNomeContato.value = "";
   inputTelefoneContato.value = "";
-}
-
-function atualizaTabela() {
-  const corpoTabela = document.querySelector("tbody");
-  corpoTabela.innerHTML += linhas;
 }
 
 form.addEventListener("submit", function (e) {
@@ -35,7 +36,7 @@ form.addEventListener("submit", function (e) {
   }
 
   adicionaLinha(inputNomeContato, inputTelefoneContato);
-  atualizaTabela();
+  atualizaTabela(linhas);
 
   // alert(`${inputNomeContato}, ${inputTelefoneContato}`);
 });
