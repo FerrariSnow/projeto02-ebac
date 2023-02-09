@@ -40,3 +40,7 @@ form.addEventListener("submit", function (e) {
 
   // alert(`${inputNomeContato}, ${inputTelefoneContato}`);
 });
+
+$(document).ready(function () {
+  $("#telefone").mask("(00) 00000-0000", { placeholder: "(xx) xxxxx-xxxx" });
+});
